@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../new/new_page.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class NewPage extends StatefulWidget {
+  const NewPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<NewPage> createState() => _NewPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NewPageState extends State<NewPage> {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -50,7 +48,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildQuizView() {
-    // สร้างกรอบที่มีคำถามและตัวเลือก 4 ข้อ
     return Card(
       elevation: 4.0,
       child: Padding(
@@ -61,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.center,
               child: Text(
-                'Question 1 of 2',
+                'Question 2 of 2',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
@@ -75,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Which planet is know as the "Red Planet"',
+                  'What is capital of France?',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
@@ -83,10 +80,10 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 16.0),
 
-            _buildOption('Earth', Icons.looks_one,false),
-            _buildOption('Mars',Icons.looks_two,true),
-            _buildOption('Venus',Icons.looks_3,false),
-            _buildOption('Jupiter',Icons.looks_4,false),
+            _buildOption('Berlin', Icons.looks_one,false),
+            _buildOption('London',Icons.looks_two,false ),
+            _buildOption('Madrid',Icons.looks_3,false),
+            _buildOption('Paris',Icons.looks_4,true),
           ],
         ),
       ),
@@ -106,12 +103,7 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(50.0),
           ),
           child: ListTile(
-            leading: icon != null
-                ? Padding(
-              padding: const EdgeInsets.only(right: 8.0), // เพิ่มระยะห่างที่นี่
-              child: Icon(icon, color: iconColor),
-            )
-                : null,
+            leading: icon != null ? Icon(icon, color: iconColor) : null,
             title: Text(optionText),
             trailing: Radio(
               value: optionText,
@@ -123,9 +115,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-
-
 
   Widget _buildButtonPanel() {
     return Column(
@@ -178,6 +167,4 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
-
-
 }
